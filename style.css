@@ -583,11 +583,15 @@ body {
 
 /* ════════════════════════════════════════════════════════════
    BUSINESSES NAV DROPDOWN
-   Top-level "Businesses" → flyout list of Business Areas →
-   each area flies out further into the Brands within it.
+   Top-level "Businesses" → panel listing Business Areas, each
+   with its Brands listed directly underneath (indented), instead
+   of a second flyout — this is what keeps it from ever overflowing
+   off the right edge of the viewport, regardless of how close to
+   the edge the "Businesses" item sits.
    Currently: Construction Materials → MizoFlo Pipes & Fittings.
-   Extend by duplicating .nav-dropdown-area blocks for new
-   areas, and .nav-dropdown-brand-link rows for new brands.
+   Extend by duplicating .nav-dropdown-area blocks for new areas,
+   and .nav-dropdown-brand-link rows (with their logo + name) for
+   new brands within an area.
    ════════════════════════════════════════════════════════════ */
 .nav-dropdown { position: relative; }
 .nav-dropdown-toggle { display: inline-block; }
@@ -605,31 +609,27 @@ body {
   opacity: 1; visibility: visible; transform: translateY(0);
 }
 .nav-dropdown-area { position: relative; }
-.nav-dropdown-area-link {
+.nav-links a.nav-dropdown-area-link {
   display: flex; align-items: center; justify-content: space-between; gap: 10px;
   padding: 10px 14px; border-radius: var(--radius-sm);
-  color: var(--text-dark); text-decoration: none;
+  color: var(--navy); text-decoration: none;
   font-weight: 600; font-size: 0.875rem;
 }
-.nav-dropdown-area-link:hover { background: var(--off-white); color: var(--navy); }
+.nav-links a.nav-dropdown-area-link:hover { background: var(--off-white); color: var(--navy-dark); }
 .nav-dropdown-area-arrow { color: var(--text-light); font-size: 1rem; }
+
 .nav-dropdown-brands {
-  position: absolute; top: 0; left: 100%; margin-left: 6px;
-  background: var(--white); border: 1px solid var(--silver);
-  border-radius: var(--radius-sm); box-shadow: var(--shadow-md);
-  min-width: 230px; padding: 8px; z-index: 1100;
-  opacity: 0; visibility: hidden; transform: translateX(6px);
-  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+  margin: 2px 0 6px 14px;
+  padding-left: 12px;
+  border-left: 2px solid var(--silver);
 }
-.nav-dropdown-area:hover .nav-dropdown-brands,
-.nav-dropdown-brands:hover {
-  opacity: 1; visibility: visible; transform: translateX(0);
-}
-.nav-dropdown-brand-link {
-  display: block; padding: 9px 14px; border-radius: var(--radius-sm);
+.nav-links a.nav-dropdown-brand-link {
+  display: flex; align-items: center; gap: 9px;
+  padding: 8px 12px; border-radius: var(--radius-sm);
   color: var(--text-mid); text-decoration: none; font-size: 0.85rem;
 }
-.nav-dropdown-brand-link:hover { background: var(--off-white); color: var(--navy); }
+.nav-links a.nav-dropdown-brand-link:hover { background: var(--off-white); color: var(--navy); }
+.nav-dropdown-brand-logo { height: 18px; width: auto; max-width: 70px; object-fit: contain; flex-shrink: 0; }
 
 @media (max-width: 768px) {
   .nav-dropdown-panel {
@@ -637,10 +637,6 @@ body {
     box-shadow: none; border: none; min-width: auto;
     padding: 2px 0 6px 14px; margin-top: 4px;
   }
-  .nav-dropdown-brands {
-    position: static; opacity: 1; visibility: visible; transform: none;
-    box-shadow: none; border: none; min-width: auto;
-    margin-left: 0; padding: 0 0 0 14px;
-  }
-  .nav-dropdown-area-link { padding: 8px 14px; }
+  .nav-dropdown-brands { margin-left: 0; }
+  .nav-links a.nav-dropdown-area-link { padding: 8px 14px; }
 }
