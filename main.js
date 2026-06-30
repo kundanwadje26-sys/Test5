@@ -16,6 +16,35 @@ function applySiteImages() {
 }
 document.addEventListener('DOMContentLoaded', applySiteImages);
 
+// Businesses nav dropdown — nested "brands" list toggle
+// (hover expands it on desktop via CSS; this click handler is what
+// makes it work on touch devices, where :hover never fires)
+document.querySelectorAll('.nav-dropdown-area-toggle').forEach((btn) => {
+  btn.addEventListener('click', (e) => {
+    e.preventDefault();
+    const area = btn.closest('.nav-dropdown-area');
+    const willOpen = !area.classList.contains('open');
+    document.querySelectorAll('.nav-dropdown-area.open').forEach((a) => {
+      a.classList.remove('open');
+      const t = a.querySelector('.nav-dropdown-area-toggle');
+      if (t) t.setAttribute('aria-expanded', 'false');
+    });
+    if (willOpen) {
+      area.classList.add('open');
+      btn.setAttribute('aria-expanded', 'true');
+    }
+  });
+});
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('.nav-dropdown-area')) {
+    document.querySelectorAll('.nav-dropdown-area.open').forEach((a) => {
+      a.classList.remove('open');
+      const t = a.querySelector('.nav-dropdown-area-toggle');
+      if (t) t.setAttribute('aria-expanded', 'false');
+    });
+  }
+});
+
 // Navbar scroll effect
 const navbar = document.getElementById('navbar');
 if (navbar) {
