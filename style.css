@@ -101,7 +101,7 @@ body {
 /* ── NAVBAR ── */
 .navbar {
   position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-  background: linear-gradient(90deg, #ffffff 0%, #ffffff 48%, var(--navbar-brand) 76%, var(--navbar-brand) 100%);
+  background: linear-gradient(90deg, #ffffff 0%, #ffffff 10%, var(--navbar-brand) 100%, var(--navbar-brand) 100%);
   border-bottom: 1px solid var(--silver);
   transition: box-shadow var(--transition), background var(--transition);
 }
