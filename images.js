@@ -32,4 +32,11 @@ const SITE_IMAGES = {
   // Leadership headshots
   ashish: 'images/ashish.png',
   kundan: 'images/kundan.png',
+
+  // Hero / banner photography. Drop a wide (2400×1400px+) landscape
+  // photo at this path and the homepage hero will use it behind a
+  // brand-color scrim automatically. If the file doesn't exist yet,
+  // the hero just falls back to the navy gradient — totally safe
+  // to leave unset.
+  heroHome: 'images/hero-home.jpg',
 };
