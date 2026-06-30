@@ -140,19 +140,38 @@ body {
 
 /* ── HERO ── */
 .hero {
-  min-height: 100vh; padding-top: 80px;
-  background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 50%, #3D6080 100%);
+  min-height: 92vh; padding-top: 80px;
+  background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 50%, var(--navy-light) 100%);
   display: flex; flex-direction: column; justify-content: center;
   position: relative; overflow: hidden;
 }
+/* Optional full-bleed photo behind the hero. Controlled from
+   images.js (key: heroHome) — if no image is set, or the file
+   404s, the element hides itself and the gradient above shows
+   through, so this is fully optional/graceful. */
+.hero-bg-image {
+  position: absolute; inset: 0; z-index: 0;
+  width: 100%; height: 100%; object-fit: cover; object-position: center;
+}
+/* Brand-colored scrim over the photo so headline text stays
+   legible and the section still reads as "this brand's" hero,
+   not just a stock photo. Built from the theme's own navy-dark
+   variable via color-mix, so it re-themes automatically per brand. */
+.hero-overlay {
+  position: absolute; inset: 0; z-index: 1;
+  background: linear-gradient(100deg,
+    color-mix(in srgb, var(--navy-dark) 94%, transparent) 0%,
+    color-mix(in srgb, var(--navy-dark) 75%, transparent) 45%,
+    color-mix(in srgb, var(--navy-dark) 38%, transparent) 100%);
+}
 .hero-bg-pattern {
-  position: absolute; inset: 0;
+  position: absolute; inset: 0; z-index: 1;
   background-image: radial-gradient(circle at 20% 80%, rgba(213,175,127,0.12) 0%, transparent 50%),
                     radial-gradient(circle at 80% 20%, rgba(225,232,233,0.08) 0%, transparent 50%);
 }
 .hero-content {
-  position: relative; z-index: 1;
-  max-width: 1200px; margin: 0 auto; padding: 60px 2rem 40px;
+  position: relative; z-index: 2;
+  max-width: 1200px; margin: 0 auto; padding: 60px 2rem 70px;
   max-width: 800px;
 }
 .hero-eyebrow { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
@@ -164,18 +183,33 @@ body {
 .hero-subtitle { font-size: 1.1rem; color: rgba(225,232,233,0.85); max-width: 580px; margin-bottom: 40px; line-height: 1.8; }
 .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
 
-.hero-visual {
-  position: relative; z-index: 1;
-  max-width: 1200px; margin: 0 auto; padding: 0 2rem 60px;
-  display: flex; gap: 20px; flex-wrap: wrap;
+/* Full-width highlight strip directly beneath the hero — same idea
+   as the tan "Careers / Investors / Media" bar on international
+   group sites: a few high-value links, not stat cards, are what a
+   first-time visitor actually wants to click next. */
+.hero-highlight-strip { background: var(--gold); }
+.hero-highlight-strip-inner {
+  max-width: 1450px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(3, 1fr);
 }
-.hero-stat-card {
-  background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15);
-  border-radius: var(--radius-md); padding: 20px 28px;
-  backdrop-filter: blur(10px);
+.hero-highlight-item {
+  display: flex; flex-direction: column; gap: 6px;
+  padding: 26px 36px; text-decoration: none;
+  border-right: 1px solid rgba(0,0,0,0.08);
+  transition: background var(--transition);
 }
-.stat-number { font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; color: var(--gold); line-height: 1.1; }
-.stat-label { font-size: 0.8rem; font-weight: 500; color: rgba(225,232,233,0.7); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 4px; }
+.hero-highlight-item:last-child { border-right: none; }
+.hero-highlight-item:hover { background: rgba(0,0,0,0.06); }
+.hero-highlight-eyebrow {
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--navy-dark); opacity: 0.75;
+}
+.hero-highlight-title { font-family: var(--font-display); font-size: 1.25rem; font-weight: 700; color: var(--navy-dark); }
+@media (max-width: 768px) {
+  .hero-highlight-strip-inner { grid-template-columns: 1fr; }
+  .hero-highlight-item { border-right: none; border-bottom: 1px solid rgba(0,0,0,0.08); }
+  .hero-highlight-item:last-child { border-bottom: none; }
+}
 
 /* ── MISSION STRIP ── */
 .mission-strip { background: var(--navy); padding: 60px 0; }
