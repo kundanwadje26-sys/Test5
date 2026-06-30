@@ -1,0 +1,51 @@
+/* ════════════════════════════════════════════════════════════════
+   MIZOFLO PIPES & FITTINGS — BRAND THEME
+   ════════════════════════════════════════════════════════════════
+   This file is the ONLY place you need to edit to change MizoFlo's
+   brand colors across the entire MizoFlo section of the site
+   (mizoflo.html, mizoflo-portal.html, and any future MizoFlo pages).
+
+   HOW IT WORKS:
+   style.css defines the site's components (buttons, cards, nav,
+   portal UI, badges, hero sections, etc.) using CSS variables like
+   --navy and --gold instead of hardcoded colors. On MizoFlo pages,
+   we load style.css FIRST and this file SECOND. Because this file
+   re-declares those same variable names, every shared component
+   automatically re-themes itself in MizoFlo's colors — no other
+   CSS file needs to change.
+
+   TO REBRAND MIZOFLO IN THE FUTURE: just edit the hex values below.
+   TO ADD A NEW BRAND/COMPANY: copy this file (e.g. brand-newco.css),
+   change the hex values, and load it instead of this one on that
+   company's pages.
+   ════════════════════════════════════════════════════════════════ */
+
+:root {
+  /* Primary / structural color — replaces AKap "navy" everywhere
+     (navbar accents, dark sections, sidebar, headers, footer bg) */
+  --navy:        #14171A;   /* MizoFlo Black */
+  --navy-dark:   #000000;
+  --navy-light:  #2B2F33;
+
+  /* Accent color — replaces AKap "gold" everywhere
+     (buttons, links, highlights, badges, active states) */
+  --gold:        #5FAD41;   /* MizoFlo Parrot Green */
+  --gold-dark:   #468534;
+  --gold-light:  #8ED16F;
+
+  /* Neutral tones — kept close to the base palette so layout,
+     spacing and contrast remain consistent; tuned to feel
+     cohesive with black + green instead of navy + gold */
+  --silver:      #E7EAE6;
+  --silver-dark: #CBD2C7;
+  --off-white:   #F7F9F6;
+  --text-dark:   #15191A;
+  --text-mid:    #4B5550;
+  --text-light:  #7C8A82;
+
+  /* Navbar gradient (white → MizoFlo Parrot Green) — see style.css
+     for how --navbar-tint is used. Edit only the hex/opacity here
+     to change how the MizoFlo navbar fades. */
+  --navbar-tint:        rgba(95,173,65,0.16);
+  --navbar-tint-strong: rgba(95,173,65,0.26);
+}
