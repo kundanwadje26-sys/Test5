@@ -610,18 +610,33 @@ body {
 }
 .nav-dropdown-area { position: relative; }
 .nav-links a.nav-dropdown-area-link {
-  display: flex; align-items: center; justify-content: space-between; gap: 10px;
-  padding: 10px 14px; border-radius: var(--radius-sm);
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px 40px 10px 14px; border-radius: var(--radius-sm);
   color: var(--navy); text-decoration: none;
   font-weight: 600; font-size: 0.875rem;
 }
 .nav-links a.nav-dropdown-area-link:hover { background: var(--off-white); color: var(--navy-dark); }
-.nav-dropdown-area-arrow { color: var(--text-light); font-size: 1rem; }
+.nav-dropdown-area-toggle {
+  position: absolute; top: 4px; right: 4px;
+  width: 32px; height: 32px;
+  display: flex; align-items: center; justify-content: center;
+  background: none; border: none; cursor: pointer;
+  color: var(--text-light); border-radius: var(--radius-sm);
+}
+.nav-dropdown-area-toggle:hover { background: var(--off-white); color: var(--navy); }
+.nav-dropdown-area-arrow { font-size: 1rem; display: inline-block; transition: transform 0.2s ease; }
+.nav-dropdown-area.open .nav-dropdown-area-toggle .nav-dropdown-area-arrow,
+.nav-dropdown-area:hover .nav-dropdown-area-arrow { transform: rotate(90deg); }
 
 .nav-dropdown-brands {
-  margin: 2px 0 6px 14px;
-  padding-left: 12px;
-  border-left: 2px solid var(--silver);
+  max-height: 0; overflow: hidden; opacity: 0;
+  margin: 0 0 0 14px; padding-left: 12px; border-left: 2px solid var(--silver);
+  transition: max-height 0.25s ease, opacity 0.2s ease, margin 0.25s ease;
+}
+.nav-dropdown-area:hover .nav-dropdown-brands,
+.nav-dropdown-area.open .nav-dropdown-brands,
+.nav-dropdown-area:focus-within .nav-dropdown-brands {
+  max-height: 200px; opacity: 1; margin-top: 2px; margin-bottom: 6px;
 }
 .nav-links a.nav-dropdown-brand-link {
   display: flex; align-items: center; gap: 9px;
@@ -631,12 +646,15 @@ body {
 .nav-links a.nav-dropdown-brand-link:hover { background: var(--off-white); color: var(--navy); }
 .nav-dropdown-brand-logo { height: 18px; width: auto; max-width: 70px; object-fit: contain; flex-shrink: 0; }
 
+.nav-dropdown-toggle-arrow { margin-left: 4px; font-size: 0.7rem; opacity: 0.7; display: inline-block; }
+
 @media (max-width: 768px) {
   .nav-dropdown-panel {
     position: static; opacity: 1; visibility: visible; transform: none;
     box-shadow: none; border: none; min-width: auto;
     padding: 2px 0 6px 14px; margin-top: 4px;
   }
-  .nav-dropdown-brands { margin-left: 0; }
-  .nav-links a.nav-dropdown-area-link { padding: 8px 14px; }
+  .nav-dropdown-area:hover .nav-dropdown-brands { max-height: 0; opacity: 0; margin: 0; }
+  .nav-dropdown-area.open .nav-dropdown-brands { max-height: 200px; opacity: 1; margin-top: 2px; margin-bottom: 6px; }
+  .nav-links a.nav-dropdown-area-link { padding: 8px 40px 8px 14px; }
 }
