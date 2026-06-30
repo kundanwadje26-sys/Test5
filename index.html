@@ -7,6 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<link rel="preload" as="image" href="images/hero-home.jpg" fetchpriority="high">
 </head>
 <body>
 
@@ -46,7 +47,7 @@
 
 <!-- Hero Section -->
 <section class="hero">
-  <img src="images/hero-home.jpg" data-img="heroHome" alt="" class="hero-bg-image" onerror="this.style.display='none'">
+  <img src="images/hero-home.jpg" data-img="heroHome" alt="" class="hero-bg-image" fetchpriority="high" onerror="this.style.display='none'">
   <div class="hero-overlay"></div>
   <div class="hero-bg-pattern"></div>
   <div class="hero-content">
