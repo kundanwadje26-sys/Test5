@@ -577,7 +577,7 @@ body {
 
 @media (max-width: 768px) {
   .parent-brand-logo { height: 67px; max-width: 192px; } 
-   .sub-brand-logo { height: 96px; max-width: 230px; }
+   .sub-brand-logo { height: 36px; max-width: 96.84px; }
   .brand-divider { height: 30px; }
 }
 .parent-brand-badge {
