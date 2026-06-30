@@ -573,7 +573,7 @@ body {
 .parent-brand-link:hover .parent-brand-logo { opacity: 1; }
 .brand-divider { width: 1px; height: 40px; background: var(--silver-dark); display: inline-block; }
 .sub-brand-link { display: flex; align-items: center; text-decoration: none; }
-.sub-brand-logo { height: 65px; width: auto; max-width: 170px; object-fit: contain; }
+.sub-brand-logo { height: 65px; width: auto; max-width: 175px; object-fit: contain; }
 
 @media (max-width: 768px) {
   .parent-brand-logo { height: 67px; max-width: 192px; } 
