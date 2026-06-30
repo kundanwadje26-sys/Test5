@@ -44,8 +44,8 @@
   --text-light:  #7C8A82;
 
   /* Navbar gradient (white → MizoFlo Parrot Green) — see style.css
-     for how --navbar-tint is used. Edit only the hex/opacity here
-     to change how the MizoFlo navbar fades. */
-  --navbar-tint:        rgba(95,173,65,0.16);
-  --navbar-tint-strong: rgba(95,173,65,0.26);
+     for how --navbar-brand drives the navbar. MizoFlo's primary nav
+     color is the Parrot Green accent, not the black structural
+     color, so this points at --gold rather than --navy. */
+  --navbar-brand: var(--gold);
 }
