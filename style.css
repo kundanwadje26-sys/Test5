@@ -32,12 +32,12 @@
   --shadow-lg:  0 16px 48px rgba(47,79,111,0.16);
   --transition: 0.25s ease;
 
-  /* Navbar brand gradient — white fading into this brand's primary
-     color. Override --navbar-tint (and optionally --navbar-tint-strong)
-     in a brand theme file (e.g. mizoflo-theme.css) to re-skin the
-     navbar for that brand without touching any HTML or other CSS. */
-  --navbar-tint:        rgba(47,79,111,0.14);
-  --navbar-tint-strong: rgba(47,79,111,0.22);
+  /* Navbar brand gradient — white (logo zone) fading FAST into this
+     brand's solid primary color (nav-links zone). Override
+     --navbar-brand in a brand theme file (e.g. mizoflo-theme.css)
+     to re-skin the navbar for that brand without touching any HTML
+     or other CSS. */
+  --navbar-brand: var(--navy);
 }
 
 html { scroll-behavior: smooth; }
@@ -101,15 +101,11 @@ body {
 /* ── NAVBAR ── */
 .navbar {
   position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-  background: linear-gradient(90deg, #ffffff 0%, var(--navbar-tint) 100%);
-  backdrop-filter: blur(12px);
+  background: linear-gradient(90deg, #ffffff 0%, #ffffff 48%, var(--navbar-brand) 76%, var(--navbar-brand) 100%);
   border-bottom: 1px solid var(--silver);
   transition: box-shadow var(--transition), background var(--transition);
 }
-.navbar.scrolled {
-  box-shadow: var(--shadow-md);
-  background: linear-gradient(90deg, #ffffff 0%, var(--navbar-tint-strong) 100%);
-}
+.navbar.scrolled { box-shadow: var(--shadow-md); }
 .nav-container{
     max-width:1450px;
     margin:0 auto;
@@ -127,17 +123,17 @@ body {
 
 .nav-links { list-style: none; display: flex; align-items: center; gap: 4px; }
 .nav-links a {
-  font-size: 0.875rem; font-weight: 500; color: var(--text-mid);
+  font-size: 0.875rem; font-weight: 500; color: rgba(255,255,255,0.78);
   text-decoration: none; padding: 8px 12px; border-radius: var(--radius-sm);
   transition: color var(--transition), background var(--transition);
 }
-.nav-links a:hover, .nav-links a.active { color: var(--navy); background: var(--off-white); }
+.nav-links a:hover, .nav-links a.active { color: var(--navbar-brand); background: #ffffff; }
 .nav-links a.nav-portal-btn {
-  background: var(--navy); color: var(--white);
+  background: var(--navy-dark); color: var(--white);
   padding: 9px 18px; border-radius: var(--radius-sm);
   font-weight: 600; margin-left: 8px;
 }
-.nav-links a.nav-portal-btn:hover { background: var(--navy-dark); }
+.nav-links a.nav-portal-btn:hover { background: var(--text-dark); }
 
 .hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 6px; }
 .hamburger span { width: 22px; height: 2px; background: var(--navy); border-radius: 2px; transition: var(--transition); display: block; }
@@ -441,9 +437,13 @@ body {
   .footer-grid { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 768px) {
-  .nav-links { display: none; flex-direction: column; position: absolute; top: 70px; left: 0; right: 0; background: var(--white); border-bottom: 1px solid var(--silver); padding: 16px; gap: 4px; box-shadow: var(--shadow-md); }
+  .nav-links { display: none; flex-direction: column; position: absolute; top: 70px; left: 0; right: 0; background: var(--white); border-bottom: 1px solid var(--silver); padding: 16px; gap: 4px; box-shadow: var(--shadow-md); align-items: stretch; }
   .nav-links.open { display: flex; }
+  .nav-links a { color: var(--text-mid); }
+  .nav-links a:hover, .nav-links a.active { color: var(--navbar-brand); background: var(--off-white); }
+  .nav-links a.nav-portal-btn { color: var(--white); }
   .hamburger { display: flex; }
+  .hamburger span { background: #ffffff; }
   .section { padding: 56px 0; }
   .hero-content { padding: 60px 1.5rem 20px; }
   .hero-visual { padding: 0 1.5rem 40px; }
