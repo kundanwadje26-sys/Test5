@@ -48,4 +48,72 @@
      color is the Parrot Green accent, not the black structural
      color, so this points at --gold rather than --navy. */
   --navbar-brand: var(--gold);
+
+  /* ──────────────────────────────────────────────────────────────
+     SECONDARY BRAND ACCENTS — pulled directly from the MizoFlo logo
+     ──────────────────────────────────────────────────────────────
+     The logo itself already contains two more colors beyond the
+     green wordmark: a teal/cyan wave inside the "o", and a slate
+     blue used for "by AKap Group". Rather than invent a new color
+     (e.g. yellow), we lift these two straight out of the existing
+     logo so every accent on the site can be traced back to it.
+
+     ROLES:
+     --teal  → functional / data accent. Use for secondary buttons,
+               links inside body copy, data-table highlights, chart
+               lines, anything "informational" that shouldn't
+               compete with the green primary-action color.
+     --slate → heading / structural text accent. Use for large
+               headings or labels where you want something softer
+               than pure black but still authoritative — and it
+               visually ties MizoFlo back to the AKap Group parent
+               brand, since it's the exact color used in the logo's
+               "by AKap Group" lockup. */
+  --teal:        #2BC4C9;
+  --teal-dark:   #1D9CA0;
+  --teal-light:  #7FE0E3;
+
+  --slate:       #33475B;
+  --slate-dark:  #22303D;
+  --slate-light: #5C7288;
 }
+
+/* ──────────────────────────────────────────────────────────────
+   MIZOFLO COMPONENT OVERRIDES using the new accents
+   ────────────────────────────────────────────────────────────── */
+
+/* Secondary/functional button — for actions like "Export CSV" that
+   are real actions but shouldn't visually compete with the green
+   primary CTA (btn-gold, which stays green via the --gold variable) */
+.btn-teal {
+  background: transparent;
+  color: var(--teal-dark);
+  border: 2px solid var(--teal);
+  border-radius: var(--radius-sm, 6px);
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition, 0.2s ease);
+}
+.btn-teal:hover {
+  background: var(--teal);
+  color: var(--white, #fff);
+}
+
+/* Functional links (inline text links pointing to an action,
+   e.g. "Register your first partner →") */
+.link-teal {
+  color: var(--teal-dark);
+  text-decoration: none;
+  font-weight: 600;
+}
+.link-teal:hover { text-decoration: underline; }
+
+/* Structural heading accent — softer than pure black, ties back to
+   the "by AKap Group" text in the logo */
+.text-slate { color: var(--slate); }
+.text-slate-dark { color: var(--slate-dark); }
+
+/* Stat-card value accent variants, used on the portal dashboard so
+   each metric doesn't default to plain black or repeat green */
+.stat-teal  { color: var(--teal-dark) !important; }
+.stat-slate { color: var(--slate) !important; }
