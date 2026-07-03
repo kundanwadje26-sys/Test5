@@ -118,7 +118,7 @@
         </div>
         <div class="portal-stat-card">
           <div class="psc-label">Retailers</div>
-          <div class="psc-value" id="statR" style="color:var(--navy)">0</div>
+          <div class="psc-value" id="statR" style="color:var(--teal-dark)">0</div>
           <div class="psc-sub">Active retailer partners</div>
         </div>
         <div class="portal-stat-card">
@@ -128,7 +128,7 @@
         </div>
         <div class="portal-stat-card">
           <div class="psc-label">Builders + Plumbers</div>
-          <div class="psc-value" id="statBP">0</div>
+          <div class="psc-value" id="statBP" style="color:var(--slate)">0</div>
           <div class="psc-sub">Combined B & P</div>
         </div>
       </div>
@@ -151,7 +151,7 @@
               </tr>
             </thead>
             <tbody id="recentTbody">
-              <tr><td colspan="6" style="text-align:center;color:var(--text-light);padding:24px;">No partners registered yet. <a href="#" onclick="switchTab('register',null,true)" style="color:var(--navy);">Register your first partner →</a></td></tr>
+              <tr><td colspan="6" style="text-align:center;color:var(--text-light);padding:24px;">No partners registered yet. <a href="#" onclick="switchTab('register',null,true)" class="link-teal">Register your first partner →</a></td></tr>
             </tbody>
           </table>
         </div>
@@ -269,7 +269,7 @@
       <div class="portal-topbar">
         <h2>Partner Data</h2>
         <div style="display:flex;gap:10px;">
-          <button class="btn-secondary" style="padding:8px 18px;font-size:0.8rem;" onclick="exportCSV()">Export CSV</button>
+          <button class="btn-teal" style="padding:8px 18px;font-size:0.8rem;" onclick="exportCSV()">Export CSV</button>
         </div>
       </div>
 
@@ -389,7 +389,7 @@
             <p style="color:rgba(225,232,233,0.5);font-size:0.8rem;margin-top:14px;">Unique ID (XXXX) is automatically assigned on registration</p>
           </div>
           <div style="margin-top:24px;">
-            <h4 style="color:var(--navy);margin-bottom:16px;font-family:var(--font-display);">Code Segments Explained</h4>
+            <h4 style="color:var(--slate);margin-bottom:16px;font-family:var(--font-display);">Code Segments Explained</h4>
             <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
               <div style="border:1px solid var(--silver);border-radius:var(--radius-sm);padding:14px;">
                 <div style="font-weight:700;color:var(--navy);font-size:0.9rem;margin-bottom:4px;">Partner Type (R/D/B/P)</div>
@@ -522,7 +522,7 @@ function updateDashboard() {
   const tbody = document.getElementById('recentTbody');
   const recent = [...partners].reverse().slice(0, 5);
   if (recent.length === 0) {
-    tbody.innerHTML = `<tr><td colspan="6" style="text-align:center;color:var(--text-light);padding:24px;">No partners registered yet. <a href="#" onclick="switchTab('register',null,true)" style="color:var(--navy);">Register your first partner →</a></td></tr>`;
+    tbody.innerHTML = `<tr><td colspan="6" style="text-align:center;color:var(--text-light);padding:24px;">No partners registered yet. <a href="#" onclick="switchTab('register',null,true)" class="link-teal">Register your first partner →</a></td></tr>`;
     return;
   }
   tbody.innerHTML = recent.map(p => `
