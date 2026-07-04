@@ -43,11 +43,13 @@
   --text-mid:    #4B5550;
   --text-light:  #7C8A82;
 
-  /* Navbar gradient (white → MizoFlo Parrot Green) — see style.css
-     for how --navbar-brand drives the navbar. MizoFlo's primary nav
-     color is the Parrot Green accent, not the black structural
-     color, so this points at --gold rather than --navy. */
-  --navbar-brand: var(--gold);
+  /* Navbar gradient (white → MizoFlo Wave Teal) — see style.css
+     for how --navbar-brand drives the navbar. The navbar reads as
+     a background/atmosphere element, not a primary action, so it
+     uses the teal "wave" color from the logo rather than the green
+     used for primary buttons and CTAs — this keeps green reserved
+     for "click me" and gives the nav its own distinct identity. */
+  --navbar-brand: var(--teal);
 
   /* ──────────────────────────────────────────────────────────────
      SECONDARY BRAND ACCENTS — pulled directly from the MizoFlo logo
