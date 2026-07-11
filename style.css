@@ -348,9 +348,9 @@ body {
 .page-hero-overlay {
   position: absolute; inset: 0; z-index: 1;
   background: linear-gradient(100deg,
-    color-mix(in srgb, var(--navy-dark) 82%, transparent) 0%,
-    color-mix(in srgb, var(--navy-dark) 70%, transparent) 50%,
-    color-mix(in srgb, var(--navy-dark) 45%, transparent) 100%);
+    color-mix(in srgb, var(--navy-dark) 72%, transparent) 0%,
+    color-mix(in srgb, var(--navy-dark) 60%, transparent) 50%,
+    color-mix(in srgb, var(--navy-dark) 35%, transparent) 100%);
 }
 
 /* ── ABOUT PAGE ── */
