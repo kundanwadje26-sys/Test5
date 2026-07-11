@@ -252,10 +252,10 @@ body {
 .product-mockup-card:hover { box-shadow: var(--shadow-md); transform: translateY(-4px); }
 .product-mockup-image-wrap {
   display: flex; align-items: center; justify-content: center;
-  padding: 36px; min-height: 220px;
+  padding: 36px; min-height: 320px;
   background: radial-gradient(circle at 50% 40%, color-mix(in srgb, var(--gold) 10%, transparent) 0%, transparent 70%);
 }
-.product-mockup-image-wrap img { max-width: 100%; max-height: 220px; object-fit: contain; }
+.product-mockup-image-wrap img { max-width: 100%; max-height: 320px; object-fit: contain; }
 .product-mockup-card-body { padding: 0 28px 28px; }
 .product-mockup-card-body h3 { font-family: var(--font-display); font-size: 1.15rem; color: var(--navy); margin-bottom: 10px; }
 .product-mockup-card-body p { font-size: 0.9rem; color: var(--text-mid); line-height: 1.7; }
