@@ -54,6 +54,10 @@ const SITE_IMAGES = {
   mizofloCpvcMockup: 'images/mizoflo-cpvc-mockup.png',
   mizofloUpvcMockup: 'images/mizoflo-upvc-mockup.png',
 
+  // Banner photo behind the "Become a MizoFlo Partner" CTA section
+  // on the MizoFlo page (industrial skyline + pipes/fittings banner).
+  mizofloPartnerBanner: 'images/mizoflo-partner-banner.jpg',
+
   // Add new managed images below this line as the MizoFlo product
   // range grows — just add a key + path, then add
   // data-img="yourKey" to a new <img> tag wherever it should appear.
