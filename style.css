@@ -252,10 +252,10 @@ body {
 .product-mockup-card:hover { box-shadow: var(--shadow-md); transform: translateY(-4px); }
 .product-mockup-image-wrap {
   display: flex; align-items: center; justify-content: center;
-  padding: 36px; min-height: 320px;
+  padding: 36px; min-height: 220px;
   background: radial-gradient(circle at 50% 40%, color-mix(in srgb, var(--gold) 10%, transparent) 0%, transparent 70%);
 }
-.product-mockup-image-wrap img { max-width: 100%; max-height: 320px; object-fit: contain; }
+.product-mockup-image-wrap img { max-width: 100%; max-height: 220px; object-fit: contain; }
 .product-mockup-card-body { padding: 0 28px 28px; }
 .product-mockup-card-body h3 { font-family: var(--font-display); font-size: 1.15rem; color: var(--navy); margin-bottom: 10px; }
 .product-mockup-card-body p { font-size: 0.9rem; color: var(--text-mid); line-height: 1.7; }
@@ -301,8 +301,27 @@ body {
 .cta-section {
   background: linear-gradient(135deg, var(--gold-dark) 0%, var(--gold) 100%);
   padding: 80px 0;
+  position: relative; overflow: hidden;
 }
-.cta-inner { text-align: center; }
+/* Optional full-bleed banner photo behind a CTA section (e.g. the
+   "Become a MizoFlo Partner" banner). Same safe-fallback pattern as
+   .hero-bg-image / .page-hero-bg-image: wire a key up in images.js
+   and drop <img class="cta-bg-image" data-img="yourKey"> as the
+   first element inside .cta-section, followed by a
+   <div class="cta-overlay"></div>. Missing image = the plain
+   gold gradient above shows through instead. */
+.cta-bg-image {
+  position: absolute; inset: 0; z-index: 0;
+  width: 100%; height: 100%; object-fit: cover; object-position: center;
+}
+.cta-overlay {
+  position: absolute; inset: 0; z-index: 1;
+  background: linear-gradient(100deg,
+    color-mix(in srgb, var(--gold) 88%, transparent) 0%,
+    color-mix(in srgb, var(--gold) 70%, transparent) 55%,
+    color-mix(in srgb, var(--gold) 40%, transparent) 100%);
+}
+.cta-inner { text-align: center; position: relative; z-index: 2; }
 .cta-inner h2 { font-family: var(--font-display); font-size: 2.2rem; color: var(--navy-dark); margin-bottom: 12px; }
 .cta-inner p { font-size: 1.05rem; color: rgba(47,79,111,0.8); margin-bottom: 32px; }
 .cta-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
@@ -348,9 +367,9 @@ body {
 .page-hero-overlay {
   position: absolute; inset: 0; z-index: 1;
   background: linear-gradient(100deg,
-    color-mix(in srgb, var(--navy-dark) 72%, transparent) 0%,
-    color-mix(in srgb, var(--navy-dark) 60%, transparent) 50%,
-    color-mix(in srgb, var(--navy-dark) 35%, transparent) 100%);
+    color-mix(in srgb, var(--navy-dark) 92%, transparent) 0%,
+    color-mix(in srgb, var(--navy-dark) 80%, transparent) 50%,
+    color-mix(in srgb, var(--navy-dark) 55%, transparent) 100%);
 }
 
 /* ── ABOUT PAGE ── */
