@@ -235,6 +235,29 @@ body {
 .card-link { font-size: 0.875rem; font-weight: 600; color: var(--gold-dark); text-decoration: none; transition: color var(--transition); }
 .card-link:hover { color: var(--navy); }
 
+/* ── PRODUCT MOCKUP CARDS (e.g. MizoFlo CPVC/UPVC family shots) ──
+   Designed for transparent-background PNG product renders: the
+   image sits on a soft tinted panel rather than a hard white card,
+   so a background-less PNG doesn't look like it's "floating" on
+   nothing. Add more `.product-mockup-card` blocks any time — the
+   grid just wraps. */
+.product-mockup-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 28px; }
+.product-mockup-card {
+  background: var(--off-white); border: 1px solid var(--silver);
+  border-radius: var(--radius-md); overflow: hidden;
+  transition: box-shadow var(--transition), transform var(--transition);
+}
+.product-mockup-card:hover { box-shadow: var(--shadow-md); transform: translateY(-4px); }
+.product-mockup-image-wrap {
+  display: flex; align-items: center; justify-content: center;
+  padding: 36px; min-height: 220px;
+  background: radial-gradient(circle at 50% 40%, color-mix(in srgb, var(--gold) 10%, transparent) 0%, transparent 70%);
+}
+.product-mockup-image-wrap img { max-width: 100%; max-height: 220px; object-fit: contain; }
+.product-mockup-card-body { padding: 0 28px 28px; }
+.product-mockup-card-body h3 { font-family: var(--font-display); font-size: 1.15rem; color: var(--navy); margin-bottom: 10px; }
+.product-mockup-card-body p { font-size: 0.9rem; color: var(--text-mid); line-height: 1.7; }
+
 /* ── LEADERSHIP TEASER ── */
 .leadership-teaser { background: var(--white); }
 .leadership-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
@@ -304,9 +327,29 @@ body {
 .page-hero {
   background: linear-gradient(135deg, var(--navy-dark), var(--navy));
   padding: 120px 0 60px; text-align: center;
+  position: relative; overflow: hidden;
 }
-.page-hero h1 { font-family: var(--font-display); font-size: 2.8rem; color: var(--white); margin-bottom: 14px; }
-.page-hero p { font-size: 1.05rem; color: rgba(225,232,233,0.8); max-width: 560px; margin: 0 auto; }
+.page-hero h1 { font-family: var(--font-display); font-size: 2.8rem; color: var(--white); margin-bottom: 14px; position: relative; z-index: 2; }
+.page-hero p { font-size: 1.05rem; color: rgba(225,232,233,0.8); max-width: 560px; margin: 0 auto; position: relative; z-index: 2; }
+.page-hero .section-eyebrow { position: relative; z-index: 2; }
+/* Optional full-bleed photo behind an inner-page hero — same pattern
+   as .hero-bg-image on the homepage. Wire a key up in images.js and
+   drop <img class="page-hero-bg-image" data-img="yourKey"> as the
+   very first element inside .page-hero, followed by a
+   <div class="page-hero-overlay"></div>. No image set / 404 = the
+   element hides itself and the plain gradient shows through, so
+   this is fully optional per page.  */
+.page-hero-bg-image {
+  position: absolute; inset: 0; z-index: 0;
+  width: 100%; height: 100%; object-fit: cover; object-position: center;
+}
+.page-hero-overlay {
+  position: absolute; inset: 0; z-index: 1;
+  background: linear-gradient(100deg,
+    color-mix(in srgb, var(--navy-dark) 92%, transparent) 0%,
+    color-mix(in srgb, var(--navy-dark) 80%, transparent) 50%,
+    color-mix(in srgb, var(--navy-dark) 55%, transparent) 100%);
+}
 
 /* ── ABOUT PAGE ── */
 .about-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
