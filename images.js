@@ -39,4 +39,22 @@ const SITE_IMAGES = {
   // the hero just falls back to the navy gradient — totally safe
   // to leave unset.
   heroHome: 'images/hero-home.jpg',
+
+  // ── MizoFlo Pipes & Fittings — page imagery ──────────────────
+  // Hero banner photo behind the "MizoFlo Pipes & Fittings" page
+  // title (e.g. a pipes/fittings photo). Same safe-fallback
+  // behavior as heroHome — if the file is missing, the plain navy
+  // gradient shows through instead.
+  mizofloHero: 'images/mizoflo-hero-pipes.jpg',
+
+  // Product family mockups shown on the MizoFlo page. These are
+  // meant to be background-less (transparent) PNGs of the product
+  // itself, not photos — the mockup card gives them a soft tinted
+  // panel to sit on instead of a hard white/checkerboard edge.
+  mizofloCpvcMockup: 'images/mizoflo-cpvc-mockup.png',
+  mizofloUpvcMockup: 'images/mizoflo-upvc-mockup.png',
+
+  // Add new managed images below this line as the MizoFlo product
+  // range grows — just add a key + path, then add
+  // data-img="yourKey" to a new <img> tag wherever it should appear.
 };
