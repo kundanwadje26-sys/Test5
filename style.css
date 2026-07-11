@@ -246,7 +246,9 @@ body {
   background: var(--off-white); border: 1px solid var(--silver);
   border-radius: var(--radius-md); overflow: hidden;
   transition: box-shadow var(--transition), transform var(--transition);
+  user-select: none; -webkit-user-select: none;
 }
+.product-mockup-image-wrap img { user-select: none; -webkit-user-select: none; pointer-events: none; cursor: default; }
 .product-mockup-card:hover { box-shadow: var(--shadow-md); transform: translateY(-4px); }
 .product-mockup-image-wrap {
   display: flex; align-items: center; justify-content: center;
