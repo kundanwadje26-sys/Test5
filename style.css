@@ -343,7 +343,7 @@ body {
    this is fully optional per page.  */
 .page-hero-bg-image {
   position: absolute; inset: 0; z-index: 0;
-  width: 100%; height: 100%; object-fit: cover; object-position: center;
+  width: 100%; height: 100%; object-contain: cover; object-position: center;
 }
 .page-hero-overlay {
   position: absolute; inset: 0; z-index: 1;
